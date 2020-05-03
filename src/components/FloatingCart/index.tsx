@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useMemo } from 'react';
 
 import { useNavigation } from '@react-navigation/native';
 
@@ -23,17 +23,19 @@ const FloatingCart: React.FC = () => {
 
   const navigation = useNavigation();
 
-  const cartTotal = useMemo(() => {
-    // TODO RETURN THE SUM OF THE PRICE FROM ALL ITEMS IN THE CART
+  const cartTotal = useMemo(
+    () =>
+      products.reduce(
+        (total, product) => total + product.price * product.quantity,
+        0,
+      ),
+    [products],
+  );
 
-    return formatValue(0);
-  }, [products]);
-
-  const totalItensInCart = useMemo(() => {
-    // TODO RETURN THE SUM OF THE QUANTITY OF THE PRODUCTS IN THE CART
-
-    return 0;
-  }, [products]);
+  const totalItensInCart = useMemo(
+    () => products.reduce((total, product) => total + product.quantity, 0),
+    [products],
+  );
 
   return (
     <Container>
@@ -41,12 +43,12 @@ const FloatingCart: React.FC = () => {
         testID="navigate-to-cart-button"
         onPress={() => navigation.navigate('Cart')}
       >
-        <FeatherIcon name="shopping-cart" size={24} color="#fff" />
+        <FeatherIcon name="shopping-cart" size={24} color="#4ff87b" />
         <CartButtonText>{`${totalItensInCart} itens`}</CartButtonText>
       </CartButton>
 
       <CartPricing>
-        <CartTotalPrice>{cartTotal}</CartTotalPrice>
+        <CartTotalPrice>{formatValue(cartTotal)}</CartTotalPrice>
       </CartPricing>
     </Container>
   );

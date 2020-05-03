@@ -61,7 +61,7 @@ export const ProductPrice = styled.Text`
   margin-top: 5px;
 
   font-size: 16px;
-  color: #e83f5b;
+  color: #282a36;
 `;
 
 export const ProductQuantity = styled.Text`
@@ -70,7 +70,7 @@ export const ProductQuantity = styled.Text`
   margin-right: 10px;
 
   font-size: 16px;
-  color: #e83f5b;
+  color: #282a36;
 `;
 
 export const ActionContainer = styled.View`
@@ -93,7 +93,7 @@ export const TotalProductsContainer = styled.View`
   bottom: 0px;
 
   flex-direction: row;
-  background: #e83f5b;
+  background: #282a36;
 
   padding: 20px 40px;
   justify-content: space-between;
@@ -102,7 +102,7 @@ export const TotalProductsContainer = styled.View`
 
 export const TotalProductsText = styled.Text`
   font-size: 16px;
-  color: #fff;
+  color: #4ff87b;
   margin-left: 15px;
 
   flex: 1;
@@ -111,6 +111,6 @@ export const TotalProductsText = styled.Text`
 
 export const SubtotalValue = styled.Text`
   font-size: 16px;
-  color: #fff;
+  color: #ff0093;
   font-weight: bold;
 `;
